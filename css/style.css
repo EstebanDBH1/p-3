@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+@font-face {
+  font-family: Neue-Montreal;
+  src: url("../fonts/PPNeueMontreal-Book.otf");
+}
+
+:root {
+  --bg-color: #0e0e0e;
+  --color: #efefef;
+  --color-secundary: #7c7c7c;
+}
+a {
+  color: var(--color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+body {
+  width: 100%;
+  font-family: Neue-Montreal;
+  background-color: var(--bg-color);
+  color: var(--color);
+}
+
+.container__all {
+  width: 100%;
+  overflow: hidden;
+  color: var(--color);
+}
+
+/*==========ENCABEZADO===========*/
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  mix-blend-mode: difference;
+  z-index: 3;
+}
+.lista {
+  display: flex;
+  gap: 5vw;
+  mix-blend-mode: difference;
+}
+
+.lista li a{
+  display: flex;
+  align-items: center;
+}
+
+/*==================hero=====================*/
+
+/*============toggle-btn================*/
+
+.menu{
+  mix-blend-mode: difference;
+}
+
+.menu-toggle-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.span {
+  height: 0.5px;
+  background: var(--color);
+  width: 20px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.span::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 0.5px;
+  background-color: var(--color);
+  transform: translateY(-4px);
+  width: 20px;
+  transition: all 0.3s;
+  top: -3px;
+  cursor: pointer;
+}
+
+.active .span {
+  transform: rotate(45deg);
+}
+
+.active .span::before {
+  top: unset;
+  transform: rotate(-90deg);
+}
+
+.active:hover .span::before {
+  top: unset;
+}
+/*=================end tooglle menu==============*/
+
+.hero {
+  /* position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  top: 50%;
+  padding: 0 1.5rem;*/
+  width: 100vw;
+  position: relative;
+  padding: 0 1rem;
+  padding-top: 15rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.hero__info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15vw;
+}
+
+.hero__title {
+  font-size: 12vw;
+  line-height: 0.8;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.text__hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 1rem;
+  margin-right: 2rem;
+  font-size: 14px;
+}
+
+.sec-color {
+  color: var(--color-secundary);
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 990px) {
+  .hero__info {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .text__hero {
+    margin-right: 1rem;
+  }
+}
+
+/*=====================habilidades/servicios=================*/
+
+.container__boxes {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.container__item {
+  width: 100%;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.ability {
+  font-size: 30px;
+}
+
+.line1, .line2, .line3{
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: ;
+  height: 1px;
+  background-color: #7c7c7c;
+}
+
+.item {
+  /*display: flex;
+  justify-content: space-between;
+  align-items: center;*/
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100px;
+  align-items: center;
+  column-gap: 3rem;
+}
+
+.descripcion__ability {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: var(--color-secundary);
+}
+
+@media (max-width: 900px) {
+  .item {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 100px);
+    gap: 5px;
+  }
+
+  .hero {
+    padding-top: 12rem;
+  }
+  .ability {
+    font-size: 20px;
+  }
+
+  .descripcion__ability {
+    font-size: 13px;
+  }
+}
